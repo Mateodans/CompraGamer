@@ -37,7 +37,14 @@ export class HeaderComponent implements OnInit {
   }
   borrarItem(product: any){
     var currentCartInStorage = JSON.parse(localStorage.getItem('cart')!)
-    var nuevosItems = currentCartInStorage.filter((item:any) => item.id !== product.id);
+    var nuevosItems: any[] = [];
+    for (const item of currentCartInStorage) {
+      if (!(item.id_producto == product.id_producto)){
+        nuevosItems.push(item)
+      }
+    }
+    console.log(nuevosItems)
+    console.log(currentCartInStorage)
   localStorage.setItem('cart', JSON.stringify(nuevosItems));
   this.cartItems = nuevosItems;
   }
