@@ -10,19 +10,20 @@
     <button class="cart-button" class="cart-button fas fa-shopping-cart fa-xl" matBadge="{{cartItems.length}}" matBadgePosition="above after" (click)="openModal()"></button>
   </div>
   <div class="modal-container" [ngClass]="{ 'open': isModalOpen }">
+    <div style="position: sticky; top: 1px; display: flex;">
+      <button class="close-button fas fa-times" (click)="closeModal()"></button>
+    </div>
     <ul class="modal-list" *ngFor="let product of cartItems" style="color: black">
-      <img src="https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_{{ product.imagenes[0].nombre}}-med.jpg">
-      <li class="productname">{{ product.nombre }}</li>
+      <div> <img class="productimage" src="https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_{{ product.imagenes[0].nombre}}-med.jpg"></div>
+      <li class="" >{{ product.nombre }}</li>
       <li>
         <p>{{ currencyPipe.transform(product.precioConIVA, 'ARS ') }}</p>
       </li>
-      <li >
-        <button (click)="ngOnDestroy()">Borrar</button>
+      <li>
+        <button class="erasebutton" (click)="ngOnDestroy()">Borrar</button>
       </li>
       <hr>
     </ul>
-    <hr>
-    <button class="close-button" (click)="closeModal()">Cerrar carrito</button>
     <div *ngFor="let cartItem of cartItems">
       <p *ngIf="cartItem.length === 0">No tienes productos en tu carrito.</p>
     </div>

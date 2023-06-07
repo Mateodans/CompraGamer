@@ -1,16 +1,32 @@
-<!-- <div class="subcategorias-carousel">
+<div class="subcategorias-carousel">
   <div style="background-image: url('https://compragamer.net/categorias_demo/{{subCategory.imagen}}'); background-size: contain;"
   *ngFor="let subCategory of subCategories"
   class="subcategoria-item" [class.selected]="subCategory === seleccionarSubcategoria"
   (click)="seleccionarSubcategoria(subCategory)">
-  <img [src]="subCategory.imagen" alt="">
     <p>{{ subCategory.nombre }}</p>
-  </div> -->
-<!-- </div> -->
+  </div>
+ </div>
+
 <div class="categories-container">
-  <ul class="categories-list" *ngFor="let category of subCategories">
-    <li class="categories">
-      <span>{{category.nombre}}</span>
-    </li>
-    </ul>
 </div>
+<div class="product-list">
+  <div class="product-card" *ngFor="let product of products | paginate: { itemsPerPage: 8, currentPage: page }">
+    <div class="subCategories" *ngFor="let subCategory of subCategories">
+      <div *ngIf="subCategory.id == product.id_subcategoria">
+        <a href="/app-subcategories/{{subCategory.id}}">Subcategoría: {{ subCategory.nombre  }}</a>
+      </div>
+    </div>
+    <div class="product-details">
+      <div *ngFor="let image of images">
+        <div class="image" *ngIf="image[0] == product.nombre">
+          <img [src]="image[1]" alt="">
+        </div>
+      </div>
+      <h3 class="product-name">{{ product.nombre }}</h3>
+      <p class="product-price">{{ currencyPipe.transform(product.precioConIVA, 'ARS ') }}</p>
+    </div>
+    <button class="add-to-cart-button" (click)="addToCart(product)">Add to Cart</button>
+  </div>
+</div>
+<pagination-controls class="pagination" (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente">
+</pagination-controls>
