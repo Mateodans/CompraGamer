@@ -1,0 +1,40 @@
+<div class="form-container">
+<h2>Registro de Usuario</h2>
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" class="form-control" [(ngModel)]="nombre" name="nombre" required minlength="2" maxlength="30" pattern="[A-Za-z\s]+">
+      <div classs="form-requirements" *ngIf="form.controls['nombre']?.errors?.minlength">El nombre debe tener al menos 3 caracteres.</div>
+      <div classs="form-requirements" *ngIf="form.controls['nombre']?.errors?.maxlength">El nombre debe tener como máximo 15 caracteres.</div>
+  </div>
+  <div class="form-group">
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" class="form-control" [(ngModel)]="apellido" name="apellido" required minlength="2" maxlength="30" pattern="[A-Za-z\s]+">
+      <div classs="form-requirements" *ngIf="form.controls['apellido']?.errors?.minlength">El apellido debe tener al menos 3 caracteres.</div>
+      <div classs="form-requirements" *ngIf="form.controls['apellido']?.errors?.maxlength">El apellido debe tener como máximo 15 caracteres.</div>
+  </div>
+  <div class="form-group">
+    <label for="dni">DNI:</label>
+    <input type="text" id="dni"  minlength="7" maxlength="8" class="form-control" [(ngModel)]="dni" name="dni" required pattern="[0-9]+">
+    <div classs="form-requirements" *ngIf="form.controls['dni']?.errors?.minlength">El DNI debe tener al menos 7 caracteres.</div>
+    <div classs="form-requirements" *ngIf="form.controls['dni']?.errors?.minlength">El DNI debe tener al menos 8 caracteres.</div>
+    <div classs="form-requirements" *ngIf="form.controls['dni']?.errors?.pattern">El DNI debe tener solo numeros.</div>
+
+  </div>
+  <div class="form-group">
+    <label for="correo">Correo:</label>
+    <input type="email" id="correo" class="form-control" [(ngModel)]="correo" name="correo" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"  minlength="8" required>
+    <div classs="form-requirements" *ngIf="form.controls['correo']?.errors?.minlength">El correo es obligatorio.</div>
+    <div classs="form-requirements" *ngIf="form.controls['correo']?.errors?.pattern">Ingrese una dirección de correo válida.</div>
+  </div>
+  <div class="form-group">
+    <label for="telefono">Telefono:</label>
+    <input type="number" id="telefono" class="form-control" [(ngModel)]="telefono" name="telefono" pattern="[0-9]+" minlength="10" maxlength="12">
+    <div classs="form-requirements" *ngIf="form.controls['telefono']?.errors?.pattern">El telefono debe tener solo numeros.</div>
+    <div classs="form-requirements" *ngIf="form.controls['telefono']?.errors?.minlength">El telefono debe tener al menos 10 caracteres.</div>
+    <div classs="form-requirements" *ngIf="form.controls['telefono']?.errors?.maxlength">El telefono debe tener al menos 12 caracteres.</div>
+  </div>
+  <button [disabled]="form.invalid" type="submit">Registrarse</button>
+</form>
+</div>
+
