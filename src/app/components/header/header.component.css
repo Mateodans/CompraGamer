@@ -23,7 +23,6 @@
   flex-wrap: wrap;
   justify-items: start;
   margin-bottom: 30px;
-  height: 50vh;
 }
 
 .modal-list img {
@@ -102,6 +101,7 @@
   display: none;
   z-index: 10;
   list-style-type: none;
+  height: 50vh;
 }
 
 .modal-container.open {
