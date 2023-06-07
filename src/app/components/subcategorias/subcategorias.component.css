@@ -1,0 +1,30 @@
+.subcategorias-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 10px;
+}
+
+.subcategoria-item {
+  flex: 0 0 auto;
+  width: 400px;
+  height: 400px;
+  background-color: #eaeaea;
+  margin: 5px;
+  scroll-snap-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.subcategorias-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.categories {
+  list-style-type: none;
+}

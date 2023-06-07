@@ -1,0 +1,16 @@
+<!-- <div class="subcategorias-carousel">
+  <div style="background-image: url('https://compragamer.net/categorias_demo/{{subCategory.imagen}}'); background-size: contain;"
+  *ngFor="let subCategory of subCategories"
+  class="subcategoria-item" [class.selected]="subCategory === seleccionarSubcategoria"
+  (click)="seleccionarSubcategoria(subCategory)">
+  <img [src]="subCategory.imagen" alt="">
+    <p>{{ subCategory.nombre }}</p>
+  </div> -->
+<!-- </div> -->
+<div class="categories-container">
+  <ul class="categories-list" *ngFor="let category of subCategories">
+    <li class="categories">
+      <span>{{category.nombre}}</span>
+    </li>
+    </ul>
+</div>

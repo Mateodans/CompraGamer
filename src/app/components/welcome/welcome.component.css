@@ -1,0 +1,103 @@
+.container{
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.centrado {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-100%);
+}
+
+.gray{
+  position: relative;
+  width: 35vw;
+  height: 100vh;
+  background: #383838;
+}
+
+.tech{
+  position: relative;
+  width: 70vw;
+  height: 100vh;
+  background-image: url('src/assets/tech2.jpeg');
+  background-size: cover;
+}
+
+
+.title {
+    margin-top: 20px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 25px;
+    letter-spacing: -1px;
+    word-spacing: 1.2px;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    text-align: center;
+
+}
+
+.paragraph{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 20px;
+    letter-spacing: -1px;
+    word-spacing: 1.2px;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-style: italic;
+    text-align: center;
+}
+
+.startbutton {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #ff4081;
+    border: none;
+    border-radius: 4px;
+    justify-self: center;
+    width: 110px; /* Para que no se rompa en dos líneas, y lo translade tal cual. */
+    margin-left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+ /*  .startbutton:hover {
+
+  } */
+
+
+
+  .subcategorias-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 10px;
+  }
+
+  .subcategoria-item {
+    flex: 0 0 auto;
+    width: 450px;
+    height: 62px;
+    background-color: #eaeaea;
+    margin: 5px;
+    scroll-snap-align: center;
+  }
+
+  .subcategoria-item p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .subcategorias-carousel::-webkit-scrollbar {
+    display: none;
+  }
