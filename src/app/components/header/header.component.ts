@@ -35,37 +35,13 @@ export class HeaderComponent implements OnInit {
     const precioConIVA = precio + montoIVA;
     return precioConIVA;
   }
-
-  addToCart() {
-    // const products = {
-    //   id: '',
-    //   name: '',
-    //   price: 10.99,
-    //   Otros detalles del producto
-    // };
-
-    // const url = 'https://static.compragamer.com/test/productos.json';
-
-    // const headers = new HttpHeaders().set('Content-Type', 'application/json');
-
-
-    // this.http.post(url, products, { headers }).subscribe(
-    //   () => {
-    //     this.snackBar.open('El producto se ha añadido al carrito', 'Cerrar', {
-    //       duration: 2000
-    //     });
-    //   },
-    //   (error) => {
-    //     console.error('Error al añadir al desplegar el carrito:', error);
-    //     this.snackBar.open('Error al añadir al desplegar el carrito', 'Cerrar', {
-    //       duration: 3000
-    //     });
-    //   }
-    // );
+  borrarItem(product: any){
+    var currentCartInStorage = JSON.parse(localStorage.getItem('cart')!)
+    var nuevosItems = currentCartInStorage.filter((item:any) => item.id !== product.id);
+  localStorage.setItem('cart', JSON.stringify(nuevosItems));
+  this.cartItems = nuevosItems;
   }
-  //prueba
   ngOnInit(): void {
-    // Suscribirse al evento de almacenamiento local para actualizar los items del carrito
     if (localStorage.getItem('cart') != null){
       this.cartItems = JSON.parse(localStorage.getItem('cart')!)
     }
@@ -73,7 +49,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    // Eliminar la suscripción al evento de almacenamiento local al destruir el componente
     window.removeEventListener('storage', this.actualizarCarrito);
   }
 
@@ -86,9 +61,5 @@ export class HeaderComponent implements OnInit {
       this.cartItems = JSON.parse(localStorage.getItem('cart')!)
       console.log(this.cartItems)
     }
-    // Obtener los items del carrito desde el almacenamiento local
-    // const items = JSON.parse(localStorage.getItem('cart') || '[]');
-    // this.cartItems = items;
-
   };
 }
