@@ -3,6 +3,8 @@ import { ApiService } from 'src/app/services/api.service';
 import { CurrencyPipe } from '@angular/common';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatBadge } from '@angular/material/badge';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-product-list',
@@ -23,6 +25,7 @@ export class ProductListComponent implements OnInit {
 
   @Output() subCategoriaSeleccionada: EventEmitter<any> = new EventEmitter<any>();
 
+  @Input()color: ThemePalette
   constructor(private apiService: ApiService, currencyPipe: CurrencyPipe, private snackBar: MatSnackBar, private http: HttpClient) {
     this.currencyPipe = currencyPipe;
   }

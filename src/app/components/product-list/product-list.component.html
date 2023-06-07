@@ -3,21 +3,20 @@
   *ngFor="let subCategory of subCategories"
   class="subcategoria-item" [class.selected]="subCategory === seleccionarSubcategoria"
   (click)="seleccionarSubcategoria(subCategory)">
-  <p class="carrousel-text">{{ subCategory.nombre }}</p>
 </div>
 </div>
 <span>Listado de productos disponibles</span>
 <button mat-button [matMenuTriggerFor]="menu" class="dropdown-button">Seleccionar Categoría ▿ </button>
 <mat-menu #menu="matMenu" class="dropdown-menu">
-  <button mat-menu-item *ngFor="let subCategory of subCategories" (click)="seleccionarSubcategoria(subCategory)">
-    {{ subCategory.nombre }}
-  </button>
+  <a [routerLink]="['/app-subcategories', subCategory.id]" mat-menu-item *ngFor="let subCategory of subCategories" (click)="seleccionarSubcategoria(subCategory)">
+    <p>{{ subCategory.nombre }}</p>
+  </a>
 </mat-menu>
 <div class="product-list">
   <div class="product-card" *ngFor="let product of products | paginate: { itemsPerPage: 8, currentPage: page }">
     <div class="subCategories" *ngFor="let subCategory of subCategories">
       <div *ngIf="subCategory.id == product.id_subcategoria">
-        <a href="/app-subcategories">Subcategoría: {{ subCategory.nombre  }}</a>
+        <a href="/app-subcategories/{{subCategory.id}}">Subcategoría: {{ subCategory.nombre  }}</a>
       </div>
     </div>
     <div class="product-details">
@@ -32,7 +31,7 @@
     <button class="add-to-cart-button" (click)="addToCart(product)">Add to Cart</button>
   </div>
 </div>
-<pagination-controls class="pagination" (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente">
+<pagination-controls class="pagination my-pagination" (pageChange)="page = $event" ThemePalette="" previousLabel="" nextLabel="">
 </pagination-controls>
 <span>Listado de productos Demasiado baratos para ser real!!!</span>
 <div class="product-list">
@@ -41,7 +40,7 @@
       <div class="product-details">
         <div class="subCategories" *ngFor="let subCategory of subCategories">
           <div *ngIf="subCategory.id == product.id_subcategoria">
-            <a href="../subcategorias/subcategorias.component.html" class="product-subcategory">{{ subCategory.nombre }}</a>
+            <a href="/app-subcategories/{{subCategory.id}}" class="product-subcategory">{{ subCategory.nombre }}</a>
           </div>
         </div>
         <h3 class="product-name">{{ product.nombre }}</h3>
@@ -55,4 +54,14 @@
     <button class="add-to-cart-button" (click)="addToCart(product)">Add to Cart</button>
   </div>
 </div>
-
+<style>
+  .my-pagination /deep/ .ngx-pagination .current {
+    background: #FF8A01;
+    border-radius: 100%;
+  }
+  .my-pagination /deep/ .ngx-pagination li :hover{
+    background: #383838;
+    opacity: 10%;
+    border-radius: 100%;
+  }
+</style>

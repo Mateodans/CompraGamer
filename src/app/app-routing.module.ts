@@ -10,7 +10,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 const routes: Routes = [
   { path: 'app-register', component: RegistroUsuarioComponent },
   { path: 'app-product-list', component: ProductListComponent},
-  { path: 'app-subcategories', component: SubcategoriasComponent},
+  { path: 'app-subcategories/:id', component: SubcategoriasComponent},
   { path: '', component: WelcomeComponent },
   { path: 'carrito', component: WelcomeComponent },
 ];
