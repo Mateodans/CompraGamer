@@ -70,12 +70,6 @@ export class ProductListComponent implements OnInit {
     return '';
   }
 
-  // getProductosXCategoria(id_producto: number | string, id_subcategoria: number | string): string {
-  //   if (this.subCategories.id === this.products.id_subcategoria) {
-  //     return this.subCategories.id
-  //   }
-  // }
-
   calcularPrecioConIVA(products: any) {
     const precio = products.precio;
     const iva = products.iva;

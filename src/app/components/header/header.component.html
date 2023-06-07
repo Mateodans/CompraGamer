@@ -15,14 +15,12 @@
     </div>
     <ul class="modal-list" *ngFor="let product of cartItems" style="color: black">
       <div> <img class="productimage" src="https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_{{ product.imagenes[0].nombre}}-med.jpg"></div>
-      <li class="" >{{ product.nombre }}</li>
+      <li>{{ product.nombre }}</li>
       <li>
         <p>{{ currencyPipe.transform(product.precioConIVA, 'ARS ') }}</p>
+        <button class="erasebutton" (click)="borrarItem(product)">Borrar</button>
       </li>
-      <li>
-        <button class="erasebutton" (click)="ngOnDestroy()">Borrar</button>
-      </li>
-      <hr>
+
     </ul>
     <div *ngFor="let cartItem of cartItems">
       <p *ngIf="cartItem.length === 0">No tienes productos en tu carrito.</p>
