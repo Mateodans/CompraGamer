@@ -1,9 +1,9 @@
 <div class="subcategorias-carousel">
-  <div style="background-image: url('https://compragamer.net/categorias_demo/{{subCategory.imagen}}'); background-size: contain;"
+  <a [routerLink]="['/app-subcategories/', subCategory.id]" style="background-image: url('https://compragamer.net/categorias_demo/{{subCategory.imagen}}'); background-size: contain;"
   *ngFor="let subCategory of subCategories"
   class="subcategoria-item" [class.selected]="subCategory === seleccionarSubcategoria"
   (click)="seleccionarSubcategoria(subCategory)">
-</div>
+</a>
 </div>
 <span>Listado de productos disponibles</span>
 <button mat-button [matMenuTriggerFor]="menu" class="dropdown-button">Seleccionar Categoría ▿ </button>

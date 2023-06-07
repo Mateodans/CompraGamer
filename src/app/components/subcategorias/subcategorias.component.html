@@ -1,9 +1,9 @@
 <div class="subcategorias-carousel">
-  <div style="background-image: url('https://compragamer.net/categorias_demo/{{subCategory.imagen}}'); background-size: contain;"
+  <a [routerLink]="['/app-subcategories/', subCategory.id]" style="background-image: url('https://compragamer.net/categorias_demo/{{subCategory.imagen}}'); background-size: contain;"
   *ngFor="let subCategory of subCategories"
   class="subcategoria-item" [class.selected]="subCategory === seleccionarSubcategoria"
   (click)="seleccionarSubcategoria(subCategory)">
-  </div>
+  </a>
  </div>
 
 <div class="categories-container">
@@ -13,13 +13,7 @@
 </div>
 <div class="product-list">
   <div class="product-card" *ngFor="let product of products | paginate: { itemsPerPage: 8, currentPage: page }">
-    <div class="subCategories" *ngFor="let subCategory of subCategories">
-      <div *ngIf="subCategory.id == product.id_subcategoria">
-        <a [routerLink]="['app-subcategories/', subCategory.id]">
-          Subcategoría: {{ subCategory.nombre  }}
-        </a>
-      </div>
-    </div>
+
     <div class="product-details">
       <div *ngFor="let image of images">
         <div class="image" *ngIf="image[0] == product.nombre">

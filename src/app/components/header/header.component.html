@@ -20,7 +20,6 @@
         <p>{{ currencyPipe.transform(product.precioConIVA, 'ARS ') }}</p>
         <button class="erasebutton" (click)="borrarItem(product)">Borrar</button>
       </li>
-
     </ul>
     <div *ngFor="let cartItem of cartItems">
       <p *ngIf="cartItem.length === 0">No tienes productos en tu carrito.</p>
