@@ -1,6 +1,11 @@
 # CompraGamer Prueba
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
+And use NodeJs version 14.21.13
+
+## Starting with the project 
+
+Run `npm i` or `npm install` to have the entire project with their respective libraries and technologies installed
 
 ## Development server
 
