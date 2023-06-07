@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./product-list.component.scss'],
   providers: [CurrencyPipe]
 })
+
 export class ProductListComponent implements OnInit {
   cartItems: any[] = [];
   products: any[] = [];
