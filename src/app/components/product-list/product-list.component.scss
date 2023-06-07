@@ -144,10 +144,14 @@ span {
   display: block;
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  background-color: #ffb940;
+  background-color: #FF8A01;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.add-to-cart-button:hover {
+  background-color: rgb(255, 174, 0);
 }
 

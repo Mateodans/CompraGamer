@@ -26,7 +26,6 @@ export class ProductListComponent implements OnInit {
   @Output() subCategoriaSeleccionada: EventEmitter<any> = new EventEmitter<any>();
 
   @Input()color: ThemePalette
-
   constructor(private apiService: ApiService, currencyPipe: CurrencyPipe, private snackBar: MatSnackBar, private http: HttpClient) {
     this.currencyPipe = currencyPipe;
   }

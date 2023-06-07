@@ -3,17 +3,21 @@
   *ngFor="let subCategory of subCategories"
   class="subcategoria-item" [class.selected]="subCategory === seleccionarSubcategoria"
   (click)="seleccionarSubcategoria(subCategory)">
-    <p>{{ subCategory.nombre }}</p>
   </div>
  </div>
 
 <div class="categories-container">
+  <span>
+    Categoría: {{compSubCategory[0].nombre}}
+  </span>
 </div>
 <div class="product-list">
   <div class="product-card" *ngFor="let product of products | paginate: { itemsPerPage: 8, currentPage: page }">
     <div class="subCategories" *ngFor="let subCategory of subCategories">
       <div *ngIf="subCategory.id == product.id_subcategoria">
-        <a href="/app-subcategories/{{subCategory.id}}">Subcategoría: {{ subCategory.nombre  }}</a>
+        <a [routerLink]="['app-subcategories/', subCategory.id]">
+          Subcategoría: {{ subCategory.nombre  }}
+        </a>
       </div>
     </div>
     <div class="product-details">
@@ -28,5 +32,11 @@
     <button class="add-to-cart-button" (click)="addToCart(product)">Add to Cart</button>
   </div>
 </div>
-<pagination-controls class="pagination" (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente">
+<pagination-controls class="pagination my-pagination" (pageChange)="page = $event" previousLabel="Anterior" ThemePalette="" nextLabel="Siguiente">
 </pagination-controls>
+<style>
+  .my-pagination /deep/ .ngx-pagination .current {
+    background: #FF8A01;
+    border-radius: 100%;
+  }
+</style>

@@ -13,7 +13,7 @@ import { MatBadge } from '@angular/material/badge';
 })
 export class SubcategoriasComponent implements OnInit {
   subCategory_id: string|null = null;
-  subCategory: string|null = null;
+  compSubCategory: any[] = [];
   products: any[] = [];
   cartItems: any[] = [];
   images: any[] = [];
@@ -70,6 +70,7 @@ export class SubcategoriasComponent implements OnInit {
     this.apiService.getSubcategorias().subscribe(
       (data: any) => {
         this.subCategories = data;
+        this.compSubCategory = data.filter( (category:any) => category.id == this.subCategory_id );
       },
       (error: any) => {
         console.error('Error al obtener las subcategorías:', error);

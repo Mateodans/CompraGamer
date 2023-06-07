@@ -7,6 +7,10 @@
   padding-bottom: 10px;
 }
 
+.categories-container span {
+  font-weight: bold;
+}
+
 .subcategoria-item {
   flex: 0 0 auto;
   width: 400px;

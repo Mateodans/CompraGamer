@@ -23,6 +23,7 @@
   flex-wrap: wrap;
   justify-items: start;
   margin-bottom: 30px;
+  height: 50vh;
 }
 
 .modal-list img {
@@ -30,8 +31,6 @@
   flex-wrap: wrap;
   justify-items: end;
 }
-
-
 
 .logo img {
   display: flex;
@@ -123,12 +122,17 @@
 .erasebutton{
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  background-color: #ff9940;
+  background-color: #FF8A01;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
+
+.erasebutton:hover {
+  background-color: #9d6c01;
+}
+
 @keyframes slideDown {
   0% {
     transform: translate(-50%, -70%);
